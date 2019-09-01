@@ -4,9 +4,13 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from classes import views
+from Api_app.views import api_test, api_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('test/', api_test),
+    path('test/detail/', api_detail, name="api-detail"),
+
     path('classrooms/', views.classroom_list, name='classroom-list'),
     path('classrooms/<int:classroom_id>/', views.classroom_detail, name='classroom-detail'),
 

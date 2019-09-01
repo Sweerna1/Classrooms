@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% for result in results %}
+		<div class="card">
+			<div class="card-body">
+    			<h5 class="card-title">{{result.name}}</h5>
+    			<form action="{% url 'api-detail' %}">
+    			<input type="hidden" value="{{ result.url }}" name="detail">
+    			<button type="submit" class="btn btn-primary">Read More</button>
+    			</form>
+  			</div>
+		</div>
+	{% endfor %}
+{% endblock content %}

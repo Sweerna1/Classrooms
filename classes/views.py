@@ -5,6 +5,7 @@ from .models import Classroom, Student
 from .forms import ClassroomForm, StudentForm, SignupForm, SigninForm
 from django.contrib.auth import login, authenticate, logout
 
+
 def classroom_list(request):
 	classrooms = Classroom.objects.all()
 	context = {
