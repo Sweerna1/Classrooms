@@ -5,6 +5,7 @@
 		<div class="card">
 			<div class="card-body">
     			<h5 class="card-title">{{result.name}}</h5>
+    			<p>hi</p>
     			<form action="{% url 'api-detail' %}">
     			<input type="hidden" value="{{ result.url }}" name="detail">
     			<button type="submit" class="btn btn-primary">Read More</button>
