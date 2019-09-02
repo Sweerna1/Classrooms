@@ -8,7 +8,7 @@ from Api_app.views import api_test, api_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', api_test),
+    path('test/', api_test, name="api-list"),
     path('test/detail/', api_detail, name="api-detail"),
 
     path('classrooms/', views.classroom_list, name='classroom-list'),

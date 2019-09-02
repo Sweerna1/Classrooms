@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-	{% for result in results %}
+	{% for result in response.results %}
 		<div class="card">
 			<div class="card-body">
     			<h5 class="card-title">{{result.name}}</h5>
-    			<p>hi</p>
     			<form action="{% url 'api-detail' %}">
     			<input type="hidden" value="{{ result.url }}" name="detail">
     			<button type="submit" class="btn btn-primary">Read More</button>
@@ -13,4 +12,21 @@
   			</div>
 		</div>
 	{% endfor %}
+
+	<center>
+		{% if response.previous %}
+		<form action="{% url 'api-list' %}">
+			<input type="hidden" value="{{ response.previous }}" name="previous_page">
+			<button type="submit" class="btn btn-primary">Previous</button>
+		</form>
+		{% endif %}
+
+	{% if response.next %}
+    	<form action="{% url 'api-list' %}">
+			<input type="hidden" value="{{ response.next }}" name="next_page">
+			<button type="submit" class="btn btn-primary">Next</button>
+	</form>
+	{% endif %}
+</center>
+
 {% endblock content %}
